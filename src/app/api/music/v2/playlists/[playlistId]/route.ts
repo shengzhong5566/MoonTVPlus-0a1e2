@@ -44,3 +44,6 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
     return internalError('删除歌单失败', (error as Error).message);
   }
 }
+
+// 该路由依赖请求数据（查询参数/请求头等），禁止构建时静态预渲染
+export const dynamic = 'force-dynamic';

@@ -32,3 +32,6 @@ export async function GET(request: NextRequest) {
     return internalError('获取歌单详情失败', (error as Error).message);
   }
 }
+
+// 该路由依赖请求数据（查询参数/请求头等），禁止构建时静态预渲染
+export const dynamic = 'force-dynamic';

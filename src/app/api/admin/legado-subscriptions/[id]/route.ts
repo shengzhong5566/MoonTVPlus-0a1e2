@@ -33,3 +33,6 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
     return NextResponse.json({ success: false, error: error instanceof Error ? error.message : '删除 Legado 订阅失败' }, { status: 400 });
   }
 }
+
+// 该路由依赖请求数据（查询参数/请求头等），禁止构建时静态预渲染
+export const dynamic = 'force-dynamic';

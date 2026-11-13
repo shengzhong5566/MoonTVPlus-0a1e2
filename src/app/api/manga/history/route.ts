@@ -88,3 +88,6 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+// 该路由依赖请求数据（查询参数/请求头等），禁止构建时静态预渲染
+export const dynamic = 'force-dynamic';
