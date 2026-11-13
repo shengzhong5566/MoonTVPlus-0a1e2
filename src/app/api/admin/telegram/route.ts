@@ -157,3 +157,6 @@ export async function POST(request: NextRequest) {
   await auth.storage.setAdminConfig(adminConfig);
   return NextResponse.json({ success: true, message: 'Telegram 配置保存成功' });
 }
+
+// 该路由依赖请求数据（查询参数/请求头等），禁止构建时静态预渲染
+export const dynamic = 'force-dynamic';
